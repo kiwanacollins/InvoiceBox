@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary/90 focus-visible:ring-secondary;
+  }
+  
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-400;
+  }
+  
+  .btn-ghost {
+    @apply bg-transparent hover:bg-gray-100 focus-visible:ring-gray-400;
+  }
+  
+  .btn-danger {
+    @apply bg-error text-white hover:bg-error/90 focus-visible:ring-error;
+  }
+  
+  .btn-sm {
+    @apply h-8 px-3 text-xs;
+  }
+  
+  .btn-lg {
+    @apply h-12 px-6 text-base;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card {
+    @apply rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md;
+  }
+  
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .badge-success {
+    @apply bg-success/20 text-success-700;
+  }
+  
+  .badge-warning {
+    @apply bg-warning/20 text-warning-700;
+  }
+  
+  .badge-error {
+    @apply bg-error/20 text-error-700;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
