@@ -59,21 +59,18 @@ const InvoiceStatusChart: React.FC<InvoiceStatusChartProps> = ({ data }) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: true,
     plugins: {
       legend: {
-        position: 'bottom' as const,
-        labels: {
-          usePointStyle: true,
-          boxWidth: 10,
-          padding: 20,
-        },
+        display: false, // Hide the default legend since we're using custom status indicators
       },
       tooltip: {
         callbacks: {
-          label: function(context: any) {
-            const label = context.label || '';
-            const value = context.raw || 0;
-            const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0);
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          label: function(tooltipItem: any) {
+            const label = tooltipItem.label || '';
+            const value = tooltipItem.raw || 0;
+            const total = tooltipItem.dataset.data.reduce((a: number, b: number) => a + b, 0);
             const percentage = Math.round((value / total) * 100);
             return `${label}: ${value} (${percentage}%)`;
           }
@@ -90,39 +87,41 @@ const InvoiceStatusChart: React.FC<InvoiceStatusChartProps> = ({ data }) => {
       <CardHeader>
         <CardTitle className="text-lg">Invoice Status Distribution</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col items-center">
-        <div className="relative w-full max-w-[200px]">
+      <CardContent className="flex flex-col items-center p-6">
+        <div className="relative w-full max-w-[200px] mx-auto mb-6">
           <Doughnut data={chartData} options={options} />
-          <div className="absolute inset-0 flex items-center justify-center flex-col">
-            <span className="text-2xl font-bold">{totalInvoices}</span>
-            <span className="text-xs text-gray-500">Total Invoices</span>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-gray-800">{totalInvoices}</div>
+              <div className="text-xs text-gray-500 mt-1">Total Invoices</div>
+            </div>
           </div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 w-full mt-6">
-          <div className="flex flex-col">
-            <span className="text-sm text-gray-500">Paid</span>
+        <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="flex flex-col items-center">
+            <span className="text-sm text-gray-500 mb-1">Paid</span>
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-success mr-2"></div>
               <span className="font-medium">{data.paid}</span>
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm text-gray-500">Pending</span>
+          <div className="flex flex-col items-center">
+            <span className="text-sm text-gray-500 mb-1">Pending</span>
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-secondary mr-2"></div>
               <span className="font-medium">{data.pending}</span>
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm text-gray-500">Partial</span>
+          <div className="flex flex-col items-center">
+            <span className="text-sm text-gray-500 mb-1">Partial</span>
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-primary mr-2"></div>
               <span className="font-medium">{data.partial}</span>
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm text-gray-500">Overdue</span>
+          <div className="flex flex-col items-center">
+            <span className="text-sm text-gray-500 mb-1">Overdue</span>
             <div className="flex items-center">
               <div className="w-3 h-3 rounded-full bg-error mr-2"></div>
               <span className="font-medium">{data.overdue}</span>
