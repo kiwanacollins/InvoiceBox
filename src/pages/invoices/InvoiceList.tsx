@@ -31,6 +31,7 @@ const InvoiceList: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   
+  
   // Load invoices
   useEffect(() => {
     if (user) {

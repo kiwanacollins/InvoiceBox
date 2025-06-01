@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { Invoice } from '../../types';
+import { Invoice } from '../../types'
 import { formatCurrency, formatDate, getStatusColorClass } from '../../utils/helpers';
 import { ChevronRight } from 'lucide-react';
 

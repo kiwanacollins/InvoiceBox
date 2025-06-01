@@ -9,6 +9,7 @@ const Register: React.FC = () => {
   const { register, loading, error, clearError } = useAuthStore();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [company, setCompany] = useState('');
@@ -18,6 +19,7 @@ const Register: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     clearError();
+    
     setValidationError('');
     
     // Validate fields

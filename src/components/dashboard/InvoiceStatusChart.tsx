@@ -47,7 +47,7 @@ const InvoiceStatusChart: React.FC<InvoiceStatusChartProps> = ({ data }) => {
           '#EF4444', // error
         ],
         borderColor: [
-          '#065F46', // success dark
+          '#065F46', // success dark.
           '#B45309', // warning dark
           '#1E40AF', // primary dark
           '#B91C1C', // error dark

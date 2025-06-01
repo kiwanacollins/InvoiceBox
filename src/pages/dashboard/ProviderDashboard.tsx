@@ -92,6 +92,7 @@ const ProviderDashboard: React.FC = () => {
           textClass="text-success-700"
         />
         
+        
         <StatsCard
           title="Pending Invoices"
           value={stats.totalPending + stats.totalPartial}

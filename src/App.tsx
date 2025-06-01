@@ -22,6 +22,7 @@ import CreateInvoice from './pages/invoices/CreateInvoice';
 // Account Pages
 import Profile from './pages/account/Profile';
 
+
 function App() {
   const { user, checkAuth } = useAuthStore();
   const location = useLocation();

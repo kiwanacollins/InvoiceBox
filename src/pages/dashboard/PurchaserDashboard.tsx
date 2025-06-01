@@ -21,6 +21,7 @@ const PurchaserDashboard: React.FC = () => {
     if (user) {
       fetchInvoices(user.id, user.role);
     }
+    
   }, [user, fetchInvoices]);
 
   // Calculate dashboard stats

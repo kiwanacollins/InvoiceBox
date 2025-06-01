@@ -57,6 +57,7 @@ const CreateInvoice: React.FC = () => {
     const updatedItems = [...items];
     const item = { ...updatedItems[index] };
     
+    
     if (field === 'quantity' || field === 'unitPrice') {
       item[field] = Number(value);
       item.amount = item.quantity * item.unitPrice;

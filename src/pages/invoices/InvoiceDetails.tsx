@@ -32,6 +32,7 @@ const InvoiceDetails: React.FC = () => {
       </div>
     );
   }
+  
 
   const invoicePayments = getInvoicePayments(currentInvoice.id);
 
